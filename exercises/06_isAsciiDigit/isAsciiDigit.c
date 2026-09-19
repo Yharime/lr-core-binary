@@ -9,7 +9,20 @@
  *   Rating: 3
  */
 int isAsciiDigit(int x) {
-#error TODO: Return 1 when x is between 0x30 and 0x39 inclusive.
+  /*char y;
+  y = (char) x;
+  printf("%c\n",y);*/
+  /*if(x>0x39){
+    printf("1");
+  }*/
+  if(x>=0x30&&x<=0x39){
+    //printf("%d %d\n",x,0x39);
+    return 1;
+  }
+  
+  else
+  return 0;
+//#error TODO: Return 1 when x is between 0x30 and 0x39 inclusive.
 }
 
 int main(void) {

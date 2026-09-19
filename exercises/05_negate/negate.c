@@ -8,7 +8,20 @@
  *   Rating: 2
  */
 int negate(int x) {
-#error TODO: Return the two's-complement negation of x
+    if(x==0){
+      return 0;
+    }
+    if(x>0){
+      x=~x;
+      x+=1;
+      return x;
+    }
+    if(x<0){
+      x-=1;
+      x=~x;
+      return x;
+    }
+//#error TODO: Return the two's-complement negation of x
 }
 
 int main(void) {

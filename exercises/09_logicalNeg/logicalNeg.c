@@ -9,7 +9,12 @@
  *   Rating: 4
  */
 int logicalNeg(int x) {
-#error TODO: Implement logical negation without using the ! operator.
+//#error TODO: Implement logical negation without using the ! operator.
+    int ch = 77777;
+    if((x^ch)==ch)
+    return 1;
+    else
+    return 0;
 }
 
 int main(void) {

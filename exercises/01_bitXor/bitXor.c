@@ -8,7 +8,15 @@
  *   Rating: 1
  */
 int bitXor(int x, int y) {
-#error TODO: Implement bitXor using only ~ and &.
+      x=~x;
+      int k = 0;
+      k=x&y;
+      if(k==0){
+        y=~y;
+        x=~x;
+      }
+      k=x&y;//k等于1则说明不同
+      return k;
 }
 
 int main(void) {

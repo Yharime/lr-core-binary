@@ -7,10 +7,15 @@
  *   Rating: 1
  */
 int tmin(void) {
-#error TODO: Return the minimum 32-bit two's-complement integer
+  int num;
+  num = 1;
+  num=num<<31;
+  return num;
+//#error TODO: Return the minimum 32-bit two's-complement integer
 }
 
 int main(void) {
   printf("%d\n", tmin());
+  
   return 0;
 }
