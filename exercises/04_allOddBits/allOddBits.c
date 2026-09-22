@@ -8,21 +8,17 @@
  *   Max ops: 12
  *   Rating: 2
  */
-int sum_(int a){
-  int i;
-  int op = 1;
-  for(i=1;i<=a;i++){
-      op*=2;
-  }
-  return op;
-}
 int allOddBits(int x) {
       int i;
-      int flag = 0,mark = 170;
-      for(i=0;i<4;i++){
-        flag+=mark;
-        flag=flag<<8;
-      }
+      int flag = 0,mark = 0xAA;
+      flag+=mark;
+      flag=flag<<8;
+      flag+=mark;
+      flag=flag<<8;
+      flag+=mark;
+      flag=flag<<8;
+      flag+=mark;
+      flag=flag<<8;
       flag+=mark;
       int a;
       a=flag&x;
