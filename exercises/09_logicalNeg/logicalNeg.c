@@ -9,12 +9,20 @@
  *   Rating: 4
  */
 int logicalNeg(int x) {
-//#error TODO: Implement logical negation without using the ! operator.
-    int ch = 77777;
-    if((x^ch)==ch)
-    return 1;
-    else
-    return 0;
+      int num;
+      num=x>>31;
+      int mask;
+      mask = num&1;
+      mask =(~mask)+1;
+      mask = ~mask;//生成掩码，负数生成全0，非负生成全1
+      int y;
+      y=(~x)+1;//得到相反数
+      int a,b;
+      a = x>>31;
+      a = a & 1;
+      b = y>>31;
+      b = b & 1;//得到纯净的符号位
+      return (a==b)&mask;//利用掩码筛除负数的情况，避免溢出
 }
 
 int main(void) {

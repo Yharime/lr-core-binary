@@ -8,15 +8,10 @@
  *   Rating: 1
  */
 int bitXor(int x, int y) {
-      x=~x;
-      int k = 0;
-      k=x&y;
-      if(k==0){
-        y=~y;
-        x=~x;
-      }
-      k=x&y;//k等于1则说明不同
-      return k;
+      int k1 = 0,k2 = 0;
+      k1=(~x)&y;
+      k2=(~y)&x;
+      return ~((~k1)&(~k2));
 }
 
 int main(void) {

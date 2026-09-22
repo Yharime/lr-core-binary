@@ -8,15 +8,12 @@
  *   Rating: 3
  */
 int conditional(int x, int y, int z) {
-//#error TODO: Return the equivalent of x ? y : z using bit operations.
-//printf("%d\n",x^0);
-  if(((y^x)==y)&&((z^x)==z)){
-    return z;
-  }
-  else
-  return y;
+    x = (~(x!=0))+1;
+    int a,b;
+    a = x & y;
+    b = (~x) & z;
+  return a|b;
 }
-
 int main(void) {
   int x, y, z;
   if (scanf("%d %d %d", &x, &y, &z) != 3)

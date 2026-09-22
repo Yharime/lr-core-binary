@@ -9,16 +9,14 @@
  */
 int isTmax(int x) {
 //#error TODO: Return 1 only when x is the maximum 32-bit two's-complement integer
-    int y;
-    y = x + 1;
-    //printf("%d\n",y);
-    if(y==0)
-    return 0;
-    if(x^y==(-1)){
-      return 1;
+    int y=1;
+    int i;
+    for(i=0;i<31;i++){
+      y = y<<1;
+      y+=1;
     }
-    else
-    return 0;
+    //printf("%d\n",y);、
+    return (x == y);
 }
 
 int main(void) {

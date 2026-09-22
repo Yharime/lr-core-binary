@@ -8,49 +8,21 @@
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-//#error TODO: Return 1 when x is less than or equal to y.
- int i,state1,state2,diff,flag1,flag2,win=3;
- diff = -1;
- state1 = 0;
- state2 = 0;
- flag1 = 0;
- flag2 = 0;
-  for(i=0;i<32;i++){
-    //printf("%d %d\n",x&1,y&1);
-    if((x&1)==1){
-      state1=i+1;
-      flag1 = 1;
-    }
-    if((y&1)==1){
-      state2=i+1;
-      flag2 = 1;
-    }
-    if(flag1==1&&flag2==0){
-      diff = i + 1;
-      win = 0;
-    }
-    if(flag1==0&&flag2==1){
-      diff = i + 1;
-      win =  1;
-    }
-    x=x>>1;
-    y=y>>1;
-    flag1 = 0;
-    flag2 = 0;
-  }
-  //printf("%d %d %d %d\n",state1,state2,win,diff);
-  if(state1>state2)
-  return 1;
-  if(state1<state2){
-    return 0;
-  }
-  if(state1==state2){
-    if(win==3)
-    return 1;
-    else 
-    return win;
-  }
-
+  int a,b;
+  a=x>>31;
+  b=y>>31;//得到符号位
+  int same,diff;
+  same = !(a^b);//相同则same为1
+  same = ~same + 1;//生成掩码
+  diff = ~same;//生成反掩码实现条件选择
+  int num;
+  num = y +(~x+1);//最初用的x-y后面为避免相等的情况被放错，改为y-x
+  num = num>>31;//得到符号位
+  num = !num;//同号的情况下，若差符号位为1，说明x更大，我们需要0，故用！取反。差符号位为0(这里正好将相等的情况处理了)，说明x更小，我们需要1.
+  int ans1,ans2;
+  ans1 = num&same;//若同号则same为全一，则全通过
+  ans2 = diff&(a&1);//a&1是为了得到纯净的符号位，避免得到1111111111111111的-1(原因与右移情况有关，会不断补充最高位的值)
+  return ans1|ans2;//实现二元选择
 }
 
 int main(void) {
